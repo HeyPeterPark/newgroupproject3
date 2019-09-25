@@ -80,10 +80,12 @@ const list_aug = "static/data/listings_aug.json";
 
 d3.json(list_aug).then(function(data) {
   var coord = data.features
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 750; i++) {
   // for (var i = 0; i < coord.length; i++) {
     var newMarker = L.marker([coord[i].latitude, coord[i].longitude])
+    .bindPopup("<h1>" + coord[i].name+ "</h1> <hr> <h2>" + "$"+coord[i].price + "</h2>");
     newMarker.addTo(map);
+
   }
 })
 
